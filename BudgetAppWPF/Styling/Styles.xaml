@@ -13,7 +13,61 @@
         </Setter>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="CornerRadius" Value="5"/>
     </Style>
-    <!-- fancy -->
+    <!-- border styling -->
+    <Style x:Key="StyleBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <!-- menu button styling -->
+    <Style x:Key="StyleMenuButton" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <!-- tab item styling -->
+    <Style x:Key="StyletabItem" TargetType="TabItem">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <!-- title styling -->
+    <Style x:Key="StyleTitle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!-- delete button styling -->
+    <Style x:Key="StyleDeleteButton" TargetType="Button">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="X"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <!-- Add new button -->
+    <Style x:Key="StyleAddNewButton" TargetType="Button">
+        <Setter Property="Background" Value="Green"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Content" Value="Add New"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Margin" Value="5,0,5,5"/>
+    </Style>
+    <!-- sub title styling -->
+    <Style x:Key="StyleSubTitle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+ 
 </ResourceDictionary>

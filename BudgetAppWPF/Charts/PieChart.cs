@@ -17,7 +17,7 @@ namespace BudgetAppWPF.Charts
 
 		public PieChart(List<ExpenseModel> input)
 		{
-			Chart = new PlotModel { Title = "Expense Chart", Background = OxyColors.White, SubtitleFontSize = 10, TitleFontSize = 24, };
+			Chart = new PlotModel { Title = "Expense Chart", SubtitleFontSize = 10, TitleFontSize = 24, };
 			PieSeries pie = new PieSeries();
 			foreach(var i in input)
 			{
@@ -25,9 +25,14 @@ namespace BudgetAppWPF.Charts
 			}
 			pie.OutsideLabelFormat = "{1} {2:0.#}%";
 			pie.InsideLabelFormat = "£{0}";
-			Chart.Series.Add(pie);
-			Chart.PlotMargins = new OxyThickness(10);
 			pie.AreInsideLabelsAngled = true;
+			Chart.PlotMargins = new OxyThickness(10);
+			Chart.Background = OxyColors.Transparent;
+			Chart.PlotAreaBackground = OxyColors.Transparent;
+			Chart.PlotAreaBorderColor = OxyColors.Transparent;
+			Chart.PlotAreaBorderThickness = new OxyThickness(0);
+			Chart.Series.Add(pie);
+			Chart.Padding = new OxyThickness(10);
 			
 		}
 		public PieChart()

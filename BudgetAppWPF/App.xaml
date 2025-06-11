@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:BudgetAppWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/Styling/Styles.xaml"/>
     </Application.Resources>
 </Application>
