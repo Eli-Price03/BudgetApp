@@ -15,7 +15,7 @@
    <!--#endregion-->
    
     <!-- main grid -->
-    <Grid Background="LightGray">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="20*" />
@@ -28,7 +28,7 @@
             <RowDefinition Height="5" />
         </Grid.RowDefinitions>
         <!-- left hand menu -->
-        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="3" Background="LightGray">
+        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="3" Background="White">
             <Border Style="{StaticResource StyleFancyBorder}">
                 <Button Style="{StaticResource StyleMenuButton}" Content="Overview" x:Name="btn_dashboard" Click="btn_dashboard_Click"/>
             </Border>
@@ -41,7 +41,7 @@
         </UniformGrid>
         <!-- Tab Control -->
         <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource StyleFancyBorder}">
-            <TabControl  x:Name="MainTabControl" Background="LightGray" BorderThickness="0" BorderBrush="LightGray">
+            <TabControl  x:Name="MainTabControl" Background="White" BorderThickness="0" >
                 <!-- Dashboard -->
             <TabItem Style="{StaticResource StyletabItem}" x:Name="tab_dashboard">
                 <Grid>
@@ -60,7 +60,7 @@
                         <TextBlock Text="{Binding}" Style="{StaticResource StyleSubTitle}" x:Name="text_remainder"/>
                     </StackPanel>
                     <!-- pie chart -->
-                    <Grid x:Name="piechart_stackpanel" Margin="0" Grid.Row="1" Background="LightGray">
+                    <Grid x:Name="piechart_stackpanel" Margin="0" Grid.Row="1" Background="White">
                         <oxy:PlotView Model="{Binding Chart}" x:Name="PieChart" Background="Transparent"/>
                     </Grid>
                 </Grid>
@@ -78,7 +78,7 @@
                         <TextBlock Text="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" x:Name="text_incometotal" Style="{StaticResource StyleSubTitle}"/>
                         <Button x:Name="btn_addNewIncome" Style="{StaticResource StyleAddNewButton}" Click="btn_addNewIncome_Click"/>
                     </UniformGrid>
-                    <DataGrid Grid.Row="2" x:Name="DataGrid_Income" ItemsSource="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="Cell" CellEditEnding="DataGrid_Income_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" BorderThickness="0" Background="LightGray">
+                    <DataGrid Grid.Row="2" x:Name="DataGrid_Income" ItemsSource="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="Cell" CellEditEnding="DataGrid_Income_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" BorderThickness="0" Background="WhiteSmoke">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Description" Width="45*" Binding="{Binding Title, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Amount" Width="45*">
@@ -114,7 +114,7 @@
                         <TextBlock Text="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" x:Name="text_expenses" Style="{StaticResource StyleSubTitle}"/>
                         <Button Style="{StaticResource StyleAddNewButton}" x:Name="btn_addNewExpense" Click="btn_addNewExpense_Click"/>
                     </UniformGrid>
-                    <DataGrid Grid.Row="2" x:Name="DataGrid_Expenses" ItemsSource="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="Cell" CellEditEnding="DataGrid_Expenses_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" BorderThickness="0" Background="LightGray">
+                    <DataGrid Grid.Row="2" x:Name="DataGrid_Expenses" ItemsSource="{Binding NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="Cell" CellEditEnding="DataGrid_Expenses_CellEditEnding" CanUserReorderColumns="False" CanUserSortColumns="False" BorderThickness="0" Background="WhiteSmoke">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Description" Width="45*" Binding="{Binding Title, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Amount" Width="45*">
