@@ -12,6 +12,8 @@ using System.Windows.Shapes;
 using BudgetAppWPF.Logic;
 using System.Collections.ObjectModel;
 using BudgetAppWPF.Charts;
+using Microsoft.Win32;
+using Microsoft.Extensions.Primitives;
 
 namespace BudgetAppWPF
 {
@@ -96,9 +98,13 @@ namespace BudgetAppWPF
 		{
 			MainTabControl.SelectedItem = tab_expenses;
 		}
+		private void btn_settings_Click(object sender, RoutedEventArgs e)
+		{
+			MainTabControl.SelectedItem = tab_settings;
+		}
 		#endregion
 
-		// add new / delete button clicks
+		#region AddButtons
 		private void btn_addNewExpense_Click(object sender, RoutedEventArgs e)
 		{
 			AddSampleExpense();
@@ -107,12 +113,14 @@ namespace BudgetAppWPF
 		private void btn_addNewIncome_Click(object sender, RoutedEventArgs e)
 		{
 			AddSampleIncome();
-		}
+		} 
+		#endregion
 
+		#region DeleteButtons
 		private void btn_DeleteIncome_Click(object sender, RoutedEventArgs e)
 		{
 			Button button = sender as Button;
-			if(button != null)
+			if (button != null)
 			{
 				var item = button.DataContext;
 				int row = DataGrid_Income.Items.IndexOf(item);
@@ -147,20 +155,24 @@ namespace BudgetAppWPF
 				}
 			}
 			CalculateExpenses();
-		}
+		} 
+		#endregion
 
+		#region SampleData
 		private void AddSampleIncome()
 		{
 			income.Add(new IncomeModel { Amount = 10, Id = null, Title = "Sample" });
-			CalculateIncome() ;
+			CalculateIncome();
 		}
 
 		private void AddSampleExpense()
 		{
-			expenses.Add(new ExpenseModel { Amount = 10, Id = null, Title = "Sample"});
+			expenses.Add(new ExpenseModel { Amount = 10, Id = null, Title = "Sample" });
 			CalculateExpenses();
 		}
+		#endregion
 
+		#region Calculations
 		private void CalculateIncome()
 		{
 			totalincome = income.ToList().CalculateTotalIncome();
@@ -177,7 +189,8 @@ namespace BudgetAppWPF
 		{
 			remainder = totalincome - totalexpenses;
 			text_remainder.Text = $"Remainder: £{remainder.ToString()}";
-		}
+		} 
+		#endregion
 
 		private void DataGrid_Income_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
 		{
@@ -208,6 +221,57 @@ namespace BudgetAppWPF
 		{
 			HelperClass.SaveExpenses(expenses.ToList());
 			HelperClass.SaveIncome(income.ToList());
+		}
+
+		#region CSVExport
+		private void ExportDataToCSV()
+		{
+			var save = new SaveFileDialog();
+			save.FileName = $"Budget Export {DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}.csv";
+			save.AddExtension = true;
+			save.DefaultExt = ".csv";
+			var result = save.ShowDialog();
+			if (result == true)
+			{
+				CSVExport.ExportToCSV(save.FileName, expenses.ToList(), income.ToList());
+			}
+		}
+
+		private void btn_csvExport_Click(object sender, RoutedEventArgs e)
+		{
+			ExportDataToCSV();
+		} 
+		#endregion
+
+		private void DeleteAll()
+		{
+			foreach(var expense in expenses)
+			{
+				if(expense.Id != null)
+				{
+				expense.DeleteExpense();
+				}
+			}
+			foreach(var i in income)
+			{
+				if(i.Id != null)
+				{
+				i.DeleteIncome();
+
+				}
+			}
+			income.Clear();
+			expenses.Clear();
+			AppStart();
+		}
+
+		private void btn_deleteall_Click(object sender, RoutedEventArgs e)
+		{
+			var result = MessageBox.Show("Are you sure you would like to start over?\nPlease note: this action cannot be undone.","Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+			if(result == MessageBoxResult.Yes)
+			{
+				DeleteAll();
+			}
 		}
 	}
 }

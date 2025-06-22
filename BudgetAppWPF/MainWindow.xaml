@@ -28,7 +28,7 @@
             <RowDefinition Height="5" />
         </Grid.RowDefinitions>
         <!-- left hand menu -->
-        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="3" Background="White">
+        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="4" Background="White">
             <Border Style="{StaticResource StyleFancyBorder}">
                 <Button Style="{StaticResource StyleMenuButton}" Content="Overview" x:Name="btn_dashboard" Click="btn_dashboard_Click"/>
             </Border>
@@ -37,6 +37,9 @@
             </Border>
             <Border Style="{StaticResource StyleFancyBorder}">
                 <Button Style="{StaticResource StyleMenuButton}" Content="Expense&#10;Details" x:Name="btn_expenses" Click="btn_expenses_Click"/>
+            </Border>
+            <Border Style="{StaticResource StyleFancyBorder}">
+                <Button Style="{StaticResource StyleMenuButton}" Content="Settings" x:Name="btn_settings" Click="btn_settings_Click"/>
             </Border>
         </UniformGrid>
         <!-- Tab Control -->
@@ -137,6 +140,25 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+                <!-- Settings -->
+                <TabItem Style="{StaticResource StyletabItem}" x:Name="tab_settings">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45" />
+                                <RowDefinition Height="100*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Settings" Style="{StaticResource StyleTitle}" Grid.Row="0"/>
+                            <StackPanel Grid.Row="1">
+                                <TextBlock Text="Export your data to an excel workbook:" Style="{StaticResource StyleRegularText}"/>
+                                <Button Content="CSV Export" Style="{StaticResource StyleSettingsButtons}" x:Name="btn_csvExport" Click="btn_csvExport_Click"/>
+                                <TextBlock Text="Delete all data and start again:" Style="{StaticResource StyleRegularText}"/>
+                                <Button Content="Delete Data" Style="{StaticResource StyleSettingsButtons}" Background="Red" x:Name="btn_deleteall" Click="btn_deleteall_Click"/>
+                            <TextBlock Text="About:&#10;&#10;This app is designed to make budgeting easier by visualising the numbers and using a simple interface to help you budget.&#10;&#10;Privacy:&#10;&#10;All of your data is stored locally on your device using a SQLite database found in C:\Users\(your username)\AppData\BudgetApp\" Grid.Row="2" Style="{StaticResource StyleRegularText}"/>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
         </TabControl>
         </Border>
     </Grid>
