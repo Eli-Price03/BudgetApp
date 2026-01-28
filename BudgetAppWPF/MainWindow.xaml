@@ -28,22 +28,22 @@
             <RowDefinition Height="5" />
         </Grid.RowDefinitions>
         <!-- left hand menu -->
-        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="4" Background="White">
-            <Border Style="{StaticResource StyleFancyBorder}">
+        <UniformGrid Grid.Row="1" Grid.Column="1" Rows="8" Background="White">
+            <Border Style="{StaticResource StyleFanciestBorder}">
                 <Button Style="{StaticResource StyleMenuButton}" Content="Overview" x:Name="btn_dashboard" Click="btn_dashboard_Click"/>
             </Border>
-            <Border Style="{StaticResource StyleFancyBorder}">
+            <Border Style="{StaticResource StyleFanciestBorder}" >
                 <Button Style="{StaticResource StyleMenuButton}" Content="Income&#10;Details" x:Name="btn_income" Click="btn_income_Click"/>
             </Border>
-            <Border Style="{StaticResource StyleFancyBorder}">
+            <Border Style="{StaticResource StyleFanciestBorder}" >
                 <Button Style="{StaticResource StyleMenuButton}" Content="Expense&#10;Details" x:Name="btn_expenses" Click="btn_expenses_Click"/>
             </Border>
-            <Border Style="{StaticResource StyleFancyBorder}">
+            <Border Style="{StaticResource StyleFanciestBorder}" >
                 <Button Style="{StaticResource StyleMenuButton}" Content="Settings" x:Name="btn_settings" Click="btn_settings_Click"/>
             </Border>
         </UniformGrid>
         <!-- Tab Control -->
-        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource StyleFancyBorder}">
+        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource StyleFanciestBorder}">
             <TabControl  x:Name="MainTabControl" Background="White" BorderThickness="0" >
                 <!-- Dashboard -->
             <TabItem Style="{StaticResource StyletabItem}" x:Name="tab_dashboard">

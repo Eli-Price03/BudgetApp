@@ -72,6 +72,7 @@ namespace BudgetAppWPF
 			DataGrid_Income.ItemsSource = income;
 			PopulatePieChart();
 			piechart_stackpanel.DataContext = PieChart;
+			this.WindowState = WindowState.Maximized;
 		}
 
 		private void PopulatePieChart()

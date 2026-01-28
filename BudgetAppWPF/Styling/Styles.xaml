@@ -22,15 +22,43 @@
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Margin" Value="5"/>
     </Style>
+    <!-- test storyboard -->
+    <Storyboard RepeatBehavior="Forever" x:Key="RotateGradientStoryBoard">
+        <DoubleAnimation Storyboard.TargetProperty="(Border.BorderBrush).(LinearGradientBrush.RelativeTransform).(RotateTransform.Angle)" From="0" To="360" Duration="0:0:10"/>
+    </Storyboard>
+    <!--test border -->
+    <Style x:Key="StyleFanciestBorder" TargetType="Border">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" MappingMode="RelativeToBoundingBox">
+                    <LinearGradientBrush.RelativeTransform>
+                        <RotateTransform CenterX="0.5" CenterY="0.5" />
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="Red" Offset="0.0" />
+                    <GradientStop Color="Orange" Offset="0.5" />
+                    <GradientStop Color="Yellow" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard Storyboard="{StaticResource RotateGradientStoryBoard}"/>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+  
     <!-- menu button styling -->
     <Style x:Key="StyleMenuButton" TargetType="Button">
-        <Setter Property="Background" Value="Black"/>
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
+       <!-- <Setter Property="MaxHeight" Value="150"/> -->
     </Style>
     <!-- tab item styling -->
     <Style x:Key="StyletabItem" TargetType="TabItem">
