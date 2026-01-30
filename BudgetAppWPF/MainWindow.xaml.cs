@@ -14,13 +14,15 @@ using System.Collections.ObjectModel;
 using BudgetAppWPF.Charts;
 using Microsoft.Win32;
 using Microsoft.Extensions.Primitives;
+using BudgetAppWPF.Views;
+using BudgetAppWPF.Interfaces;
 
 namespace BudgetAppWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IAddNew
     {
         public MainWindow()
         {
@@ -108,12 +110,14 @@ namespace BudgetAppWPF
 		#region AddButtons
 		private void btn_addNewExpense_Click(object sender, RoutedEventArgs e)
 		{
-			AddSampleExpense();
+			AddNew a = new AddNew(this, Enums.Type.Expense);
+			a.Show();
 		}
 
 		private void btn_addNewIncome_Click(object sender, RoutedEventArgs e)
 		{
-			AddSampleIncome();
+			AddNew a = new AddNew(this, Enums.Type.Income);
+			a.Show();
 		} 
 		#endregion
 
@@ -273,6 +277,18 @@ namespace BudgetAppWPF
 			{
 				DeleteAll();
 			}
+		}
+
+		public void AddNewExpense(ExpenseModel expense)
+		{
+			expenses.Add(expense);
+			CalculateExpenses();
+		}
+
+		public void AddNewIncome(IncomeModel i)
+		{
+			income.Add(i);
+			CalculateIncome();
 		}
 	}
 }

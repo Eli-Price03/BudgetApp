@@ -1,0 +1,21 @@
+﻿<Window x:Class="BudgetAppWPF.Views.AddNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BudgetAppWPF.Views"
+        mc:Ignorable="d"
+        Title="Add New" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="text_title" Style="{StaticResource StyleTitle}"/>
+
+            <TextBlock Text="Title:" Style="{StaticResource StyleRegularText}"/>
+            <TextBox x:Name="tbx_title" Margin="5,5,5,0" FontSize="14"/>
+            <TextBlock Text="Amount:" Style="{StaticResource StyleRegularText}"/>
+            <TextBox x:Name="tbx_amount" Margin="5,0,5,5" FontSize="14"/>
+            <Button x:Name="btn_addNew" Click="btn_addNew_Click" Content="Add New" Margin="5" Background="Green" FontSize="14" FontWeight="Bold"/>
+            <Button x:Name="btn_cancel" Click="btn_cancel_Click" Content="Cancel" Margin="5" Background="Red" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
